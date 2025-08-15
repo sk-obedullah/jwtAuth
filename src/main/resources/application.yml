@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: jwt-auth-system
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/jwt_auth_system?useSSL=false&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: password
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update   # use "update" for dev, "validate" or "none" in production
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+# JWT Configuration
+jwt:
+  secret: mySecretKey123456789012345678901234567890123456789012345678901234567890
+  expiration: 86400000 # 24 hours in milliseconds
+
+# Logging
+logging:
+  level:
+    com.example.auth: DEBUG
+    org.springframework.security: DEBUG
